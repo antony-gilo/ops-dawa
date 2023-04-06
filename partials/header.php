@@ -41,7 +41,7 @@
                         <li><a href="./shop.php">Shop</a></li>
                         <li><a href="#">Pages</a>
                             <ul class="dropdown">
-                                <li><a href="./product-details.html">Product Details</a></li>
+                                <li><a href="./product-details.php">Product Details</a></li>
                                 <li><a href="./shop-cart.html">Shop Cart</a></li>
                                 <li><a href="./checkout.html">Checkout</a></li>
                                 <li><a href="./blog-details.html">Blog Details</a></li>
