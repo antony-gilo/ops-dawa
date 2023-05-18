@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include('partials/head.php') ?>
+<?php include('admin-partials/head.php') ?>
 
 <body>
   <div class="container-scroller d-flex">
-    <!-- partial:./partials/_sidebar.html -->
-    <?php include('partials/header.php') ?>
-    
+    <!-- partial:./admin-partials/_sidebar.html -->
+    <?php include('admin-partials/header.php') ?>
+
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
@@ -384,8 +384,8 @@
           <!-- row end -->
         </div>
         <!-- content-wrapper ends -->
-        <!-- partial:./partials/_footer.html -->
-        <?php include('partials/footer.php') ?>
+        <!-- partial:./admin-partials/_footer.html -->
+        <?php include('admin-partials/footer.php') ?>
 </body>
 
 </html>
