@@ -18,7 +18,7 @@
     </div>
     <div id="mobile-menu-wrap"></div>
     <div class="offcanvas__auth">
-        <a href="#">Login</a>
+        <a href="./login.php">Login</a>
         <a href="#">Register</a>
     </div>
 </div>
@@ -36,9 +36,9 @@
                 <nav class="header__menu">
                     <ul>
                         <li class="active"><a href="./index.php">Home</a></li>
-                        <li><a href="#">Shop</a></li>
+                        <li><a href="./product-details.php">Shop</a></li>
                         <li><a href="#">Men’s</a></li>
-                        <li><a href="./shop.php">Shop</a></li>
+                        <li><a href="./product-details.php">Shop</a></li>
                         <li><a href="#">Pages</a>
                             <ul class="dropdown">
                                 <li><a href="./product-details.php">Product Details</a></li>
@@ -55,8 +55,8 @@
             <div class="col-lg-3">
                 <div class="header__right">
                     <div class="header__right__auth">
-                        <a href="#">Login</a>
-                        <a href="#">Register</a>
+                        <a href="./login.php">Login</a>
+                        <a href="./register.php">Register</a>
                     </div>
                     <ul class="header__right__widget">
                         <li><span class="icon_search search-switch"></span></li>
