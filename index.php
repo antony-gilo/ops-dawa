@@ -223,7 +223,7 @@ include("partials/head.php");
     <!-- Product Section End -->
 
     <!-- Banner Section Begin -->
-    <section class="banner set-bg" data-setbg="img/banner/banner-1.jpg">
+    <section class="banner set-bg" data-setbg="img/banner/ops-banner-nobg.png">
         <div class="container">
             <div class="row">
                 <div class="col-xl-7 col-lg-8 m-auto">
