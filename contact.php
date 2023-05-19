@@ -46,12 +46,10 @@
                         </div>
                         <div class="contact__form">
                             <h5>SEND MESSAGE</h5>
-                            <form action="#">
-                                <input type="text" placeholder="Name">
-                                <input type="text" placeholder="Email">
-                                <input type="text" placeholder="Website">
-                                <textarea placeholder="Message"></textarea>
-                                <button type="submit" class="site-btn">Send Message</button>
+                            <form action="handlers/contact-handler.php" method="POST">
+                                <input type="email" placeholder="Email" name="contact-email" required>
+                                <textarea placeholder="Message" name="contact-message" required></textarea>
+                                <button type="submit" class="site-btn" name="submit-contact">Send Message</button>
                             </form>
                         </div>
                     </div>
