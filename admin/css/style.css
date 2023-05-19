@@ -8875,7 +8875,7 @@ input[type="checkbox"] {
 
 textarea {
   overflow: auto;
-  resize: vertical;
+  resize: vertical !important;
 }
 
 fieldset {
@@ -10412,9 +10412,9 @@ pre code {
   font-weight: 400;
   line-height: 1;
   color: #495057;
-  background-color: #ffffff;
+  background-color: #F0EDFF;
   background-clip: padding-box;
-  border: 1px solid #ced4da;
+  border: 1px solid #0095B8;
   border-radius: 2px;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
