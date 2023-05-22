@@ -18,13 +18,13 @@
                         <p class="card-description">
                             Create the categories in which the drugs will belong to:
                         </p>
-                        <form class="forms-sample" action="" method="POST">
+                        <form class="forms-sample" action="../handlers/category-handler.php" method="POST">
                             <div class="form-group">
                                 <label for="category-name">Category Name</label>
-                                <input type="text" class="form-control" name="category-name" id="category-name" placeholder="Category Name">
+                                <input type="text" class="form-control" name="category-name" id="category-name" placeholder="Category Name" required>
                             </div>
                     
-                            <button type="submit" class="btn btn-primary mr-2 mt-4">Submit</button>
+                            <button type="submit" name="submit-category" class="btn btn-primary mr-2 mt-4">Submit</button>
                         </form>
                     </div>
                 </div>

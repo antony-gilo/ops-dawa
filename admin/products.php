@@ -34,7 +34,7 @@
                         <p class="card-description">
                             Add New Drugs Or Products
                         </p>
-                        <form class="forms-sample">
+                        <form class="forms-sample" action="" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="product-name">Product Name</label>
                                 <input type="text" class="form-control" name="product-name" id="product-name" placeholder="Name of The Product">
@@ -67,7 +67,7 @@
                                     <option value="Beauty and Skin Care">Beauty and Skin Care</option>
                                     <option value="Health Care Conditions">Health Care Conditions</option>
                                     <option value="Equipment & Diagnostics">Equipment & Diagnostics</option>
-                                    <option value="Vitamins and Supplements">Vitamins and Supplements</option>
+                                    <option value="Vitamins & Supplements">Vitamins & Supplements</option>
                                     <option value="Mum & Baby">Mum & Baby</option>
                                 </select>   
                             </div>
