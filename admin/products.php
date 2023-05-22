@@ -1,7 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<?php include('admin-partials/head.php') ?>
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>OPS | Admin</title>
+  <!-- base:css -->
+  <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="vendors/select2/select2.min.css">
+  <link rel="stylesheet" href="vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="images/favicon.png" />
+</head>
 
 <body>
   <div class="container-scroller d-flex">
@@ -45,16 +61,16 @@
                                 </div>
                             </div>
 
-                            <!-- <div class="form-group" data-select2-id="7">
-                                <label>Multiple select using select 2</label>
-                                <select class="js-example-basic-multiple w-100 select2-hidden-accessible" multiple="" data-select2-id="4" tabindex="-1" aria-hidden="true">
-                                <option value="AL" data-select2-id="18">Alabama</option>
-                                <option value="WY" data-select2-id="19">Wyoming</option>
-                                <option value="AM" data-select2-id="20">America</option>
-                                <option value="CA" data-select2-id="21">Canada</option>
-                                <option value="RU" data-select2-id="22">Russia</option>
-                                </select><span class="select2 select2-container select2-container--default select2-container--above" dir="ltr" data-select2-id="5" style="width: 456.5px;"><span class="selection"><span class="select2-selection select2-selection--multiple" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="-1" aria-disabled="false"><ul class="select2-selection__rendered"><li class="select2-search select2-search--inline"><input class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" role="searchbox" aria-autocomplete="list" placeholder="" style="width: 0.75em;"></li></ul></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
-                            </div> -->
+                            <div class="form-group">
+                                <label for="product-category">Select Product Categories</label>
+                                <select class="js-example-basic-multiple w-100 " multiple="multiple" id="product-description" aria-hidden="true">
+                                    <option value="Beauty and Skin Care">Beauty and Skin Care</option>
+                                    <option value="Health Care Conditions">Health Care Conditions</option>
+                                    <option value="Equipment & Diagnostics">Equipment & Diagnostics</option>
+                                    <option value="Vitamins and Supplements">Vitamins and Supplements</option>
+                                    <option value="Mum & Baby">Mum & Baby</option>
+                                </select>   
+                            </div>
 
                             <button type="submit" class="btn btn-primary mr-2 mt-4">Submit</button>
                             <button class="btn btn-light mt-4">Cancel</button>
@@ -68,8 +84,45 @@
         </div>
         <!-- content-wrapper ends -->
         <!-- partial:./admin-partials/_footer.html -->
-        <?php include('admin-partials/footer.php') ?>
-        <script src="js/file-upload.js"></script>
+        <footer class="footer">
+            <div class="card">
+                <div class="card-body">
+                <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                    <span class="text-muted d-block text-center d-sm-inline-block">Copyright © Grace Nyambura 2023</span>
+                </div>
+                </div>
+            </div>
+            </footer>
+            <!-- partial -->
+            </div>
+            <!-- main-panel ends -->
+            </div>
+            <!-- page-body-wrapper ends -->
+            </div>
+            <!-- container-scroller -->
+
+            <!-- base:js -->
+            <script src="vendors/js/vendor.bundle.base.js"></script>
+            <!-- endinject -->
+            <!-- Plugin js for this page-->
+            <script src="vendors/typeahead.js/typeahead.bundle.min.js"></script>
+            <script src="vendors/chart.js/Chart.min.js"></script>
+            <script src="vendors/select2/select2.min.js"></script>
+            <!-- End plugin js for this page-->
+            <!-- inject:js -->
+            <script src="js/off-canvas.js"></script>
+            <script src="js/hoverable-collapse.js"></script>
+            <script src="js/template.js"></script>
+            <script src="js/settings.js"></script>
+            <!-- endinject -->
+            <!-- plugin js for this page -->
+            <!-- End plugin js for this page -->
+            <!-- Custom js for this page-->
+            <script src="js/dashboard.js"></script>
+            <!-- End custom js for this page-->
+            <script src="js/file-upload.js"></script>
+            <script src="js/typeahead.js"></script>
+            <script src="js/select2.js"></script>
 
 </body>
 
