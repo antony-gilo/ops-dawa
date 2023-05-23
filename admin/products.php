@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<?php 
+include('../partials/conn.php');
+?>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -34,27 +38,27 @@
                         <p class="card-description">
                             Add New Drugs Or Products
                         </p>
-                        <form class="forms-sample" action="" method="POST" enctype="multipart/form-data">
+                        <form class="forms-sample" action="../handlers/product-handler.php" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="product-name">Product Name</label>
-                                <input type="text" class="form-control" name="product-name" id="product-name" placeholder="Name of The Product">
+                                <input type="text" class="form-control" name="product-name" id="product-name" placeholder="Name of The Product" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="product-price">Price</label>
-                                <input type="text" class="form-control" name="product-price" id="product-price" placeholder="Price of The Product">
+                                <input type="text" class="form-control" name="product-price" id="product-price" placeholder="Price of The Product" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="product-description">Product Description</label>
-                                <textarea class="form-control" name="product-description" id="product-description" rows="10" placeholder="Brief Desc of The Product"></textarea>
+                                <textarea class="form-control" name="product-description" id="product-description" rows="10" placeholder="Brief Desc of The Product" required></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label>Upload Product Pictures</label>
                                 <input type="file" name="product-img" class="file-upload-default">
                                 <div class="input-group col-xs-12">
-                                    <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Product Picture" style="background-color: #F0EDFF;">
+                                    <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Product Picture" style="background-color: #F0EDFF;" required>
                                     <span class="input-group-append">
                                         <button class="file-upload-browse btn btn-primary" type="button">Upload Picture</button>
                                     </span>
@@ -63,16 +67,22 @@
 
                             <div class="form-group">
                                 <label for="product-category">Select Product Categories</label>
-                                <select class="js-example-basic-multiple w-100 " multiple="multiple" id="product-description" aria-hidden="true">
-                                    <option value="Beauty and Skin Care">Beauty and Skin Care</option>
-                                    <option value="Health Care Conditions">Health Care Conditions</option>
-                                    <option value="Equipment & Diagnostics">Equipment & Diagnostics</option>
-                                    <option value="Vitamins & Supplements">Vitamins & Supplements</option>
-                                    <option value="Mum & Baby">Mum & Baby</option>
+                                <select class="js-example-basic-multiple w-100 " multiple="multiple" name="product-category[]" id="product-description" aria-hidden="true" required>
+                                <?php 
+                                
+                                    $category_query = "SELECT * FROM categories";
+                                    $result = mysqli_query($conn, $category_query);
+
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        ?>
+                                        <option value="<?php echo $row['id']; ?>"><?php echo $row['category_name']; ?></option>
+                                <?php 
+                                    }
+                                ?>
                                 </select>   
                             </div>
 
-                            <button type="submit" class="btn btn-primary mr-2 mt-4">Submit</button>
+                            <button type="submit" name="submit-product" class="btn btn-primary mr-2 mt-4">Submit</button>
                             <button class="btn btn-light mt-4">Cancel</button>
                         </form>
                     </div>
