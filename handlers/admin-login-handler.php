@@ -34,6 +34,7 @@ if (isset($_POST['login-button']) && !empty($_POST['email'])) {
     } else {
 
         $_SESSION['username'] = $row['username'];
+        $_SESSION['full_names'] = $row['full_names'];
         $_SESSION['id-admin'] = $row['id'];
         $_SESSION['email'] = $row['email'];
 
