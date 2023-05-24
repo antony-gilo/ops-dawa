@@ -1,5 +1,13 @@
+<?php 
+session_start();
+error_reporting(error_reporting() & ~E_NOTICE);
+
+if (!isset($_SESSION['id-customer'])) {
+  header('Location: login.php');
+}
+?>
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="eng">
 
 <?php
 include("partials/head.php");

@@ -55,8 +55,15 @@
             <div class="col-lg-3">
                 <div class="header__right">
                     <div class="header__right__auth">
-                        <a href="./login.php">Login</a>
-                        <a href="./register.php">Register</a>
+                        <?php 
+                            if (isset($_SESSION['id-customer'])) {
+                                echo '<a href="./logout.php">Log Out</a>';
+                            } else {
+                                echo '<a href="./login.php">Login</a>';
+                                echo '<a href="./register.php">Register</a>';
+                            }
+                        
+                        ?>
                     </div>
                     <ul class="header__right__widget">
                         <li><span class="icon_search search-switch"></span></li>
