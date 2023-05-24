@@ -1,7 +1,10 @@
 <?php 
 session_start();
-
 error_reporting(error_reporting() & ~E_NOTICE);
+
+if (!isset($_SESSION['id-admin'])) {
+  header('Location: admin-login.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
