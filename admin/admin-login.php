@@ -1,3 +1,14 @@
+<?php 
+session_start();
+
+error_reporting(error_reporting() & ~E_NOTICE);
+
+$_SESSION['username'] = NULL;
+$_SESSION['id-admin'] = NULL;
+
+unset($_SESSION['username']);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
