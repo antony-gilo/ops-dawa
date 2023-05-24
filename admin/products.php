@@ -67,7 +67,7 @@ include('../partials/conn.php');
 
                             <div class="form-group">
                                 <label for="product-category">Select Product Categories</label>
-                                <select class="js-example-basic-multiple w-100 " multiple="multiple" name="product-category[]" id="product-description" aria-hidden="true" required>
+                                <select class="js-example-basic-multiple w-100 " multiple="multiple" name="product-category[]"  id="product-description" aria-hidden="true" required>
                                 <?php 
                                 
                                     $category_query = "SELECT * FROM categories";
