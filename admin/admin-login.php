@@ -50,7 +50,7 @@ unset($_SESSION['username']);
                         <i class="mdi mdi-account-outline text-primary"></i>
                       </span>
                     </div>
-                    <input type="email" class="form-control form-control-lg border-left-0" id="exampleInputEmail" placeholder="Email Address" name="email">
+                    <input type="email" class="form-control form-control-lg border-left-0" id="exampleInputEmail" placeholder="Email Address" name="email" required>
                   </div>
                 </div>
                 <div class="form-group">
@@ -61,7 +61,7 @@ unset($_SESSION['username']);
                         <i class="mdi mdi-lock-outline text-primary"></i>
                       </span>
                     </div>
-                    <input type="password" class="form-control form-control-lg border-left-0" id="exampleInputPassword" placeholder="Password" name="password">                        
+                    <input type="password" class="form-control form-control-lg border-left-0" id="exampleInputPassword" placeholder="Password" name="password" required>                        
                   </div>
                 </div>
                 <div class="my-3">
