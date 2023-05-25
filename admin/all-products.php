@@ -72,7 +72,9 @@ include('../partials/conn.php');
                             <img src="<?php echo $all_products['product_pictures']; ?>" alt="image">
                           </td>
                           <td>
-                            <?php echo $all_products['product_name'] ?>
+                          <a href="product-drilldown.php?id=<?php echo $all_products['id'];  ?>">
+                                <?php echo $all_products['product_name'] ?>
+                            </a>
                           </td>
                           <td class="text-truncate" style="max-width: 300px;">
                             <?php echo $all_products['product_description'] ?>
