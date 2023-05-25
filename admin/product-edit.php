@@ -12,6 +12,22 @@ if (!isset($_SESSION['id-admin'])) {
 
 <?php 
 include('../partials/conn.php');
+
+$product_id = $_GET['id'];
+
+$product_query = "SELECT * FROM products WHERE id = '$product_id'";
+$result = mysqli_query($conn, $product_query);
+
+$row = mysqli_fetch_assoc($result);
+
+$selected_cat_id = $row['category_id']; 
+
+$selected_cat_query = "SELECT category_name FROM categories WHERE id = '$selected_cat_id'";
+$selected_cat = mysqli_query($conn, $selected_cat_query);
+
+$selected_cat_name = mysqli_fetch_array($selected_cat)['category_name'];
+
+
 ?>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -46,27 +62,27 @@ include('../partials/conn.php');
                         <p class="card-description">
                             Add New Drugs Or Products
                         </p>
-                        <form class="forms-sample" action="../handlers/product-handler.php" method="POST" enctype="multipart/form-data">
+                        <form class="forms-sample" action="../handlers/product-edit-handler.php" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="product-name">Product Name</label>
-                                <input type="text" class="form-control" name="product-name" id="product-name" placeholder="Name of The Product" required>
+                                <input type="text" class="form-control" name="product-name" id="product-name" value="<?php echo $row['product_name'] ?>" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="product-price">Price</label>
-                                <input type="text" class="form-control" name="product-price" id="product-price" placeholder="Price of The Product" required>
+                                <input type="text" class="form-control" name="product-price" id="product-price" value="<?php echo $row['price'] ?>" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="product-description">Product Description</label>
-                                <textarea class="form-control" name="product-description" id="product-description" rows="10" placeholder="Brief Desc of The Product" required></textarea>
+                                <textarea class="form-control" name="product-description" id="product-description" rows="10" required><?php echo html_entity_decode(trim($row['product_description'])) ?></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label>Upload Product Pictures</label>
                                 <input type="file" name="product-img" class="file-upload-default">
                                 <div class="input-group col-xs-12">
-                                    <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Product Picture" style="background-color: #F0EDFF;" required>
+                                    <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Product Picture" style="background-color: #F0EDFF;">
                                     <span class="input-group-append">
                                         <button class="file-upload-browse btn btn-primary" type="button">Upload Picture</button>
                                     </span>
@@ -75,16 +91,16 @@ include('../partials/conn.php');
 
                             <div class="form-group">
                                 <label for="product-category">Select Product Categories</label>
-                                <select class="form-control" name="product-category" id="product-description" placeholder="Select Category" required>
-                                    <option disabled>Select Category</option>
+                                <select class="form-control" name="product-category" id="product-category" aria-hidden="true" >
+                                    <option selected value="<?php echo $selected_cat_id ?>"><?php echo $selected_cat_name ?></option>
                                 <?php 
-                                
+                                    
                                     $category_query = "SELECT * FROM categories";
                                     $result = mysqli_query($conn, $category_query);
 
-                                    while ($row = mysqli_fetch_assoc($result)) {
+                                    while ($row_cat = mysqli_fetch_assoc($result)) {
                                         ?>
-                                        <option value="<?php echo $row['id']; ?>"><?php echo $row['category_name']; ?></option>
+                                        <option value="<?php echo $row_cat['id']; ?>"><?php echo $row_cat['category_name']; ?></option>
                                 <?php 
                                     }
                                 ?>

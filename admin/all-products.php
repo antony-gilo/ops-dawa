@@ -86,7 +86,7 @@ include('../partials/conn.php');
                           <?php echo $all_products['created_at'] ?>
                           </td>
                           <td>
-                            <a href="" type="button" class="btn btn-info btn-rounded btn-icon pt-2">
+                            <a href="product-edit.php?id=<?php echo $all_products['id'] ?>" type="button" class="btn btn-info btn-rounded btn-icon pt-2">
                                 <i class="mdi mdi-pencil"></i>
                             </a>
                           </td>
