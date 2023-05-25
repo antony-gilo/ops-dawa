@@ -10088,12 +10088,12 @@ pre code {
 }
 
 .table-bordered {
-  border: 1px solid #f3f3f3;
+  border: 1px solid #dee2e6;
 }
 
 .table-bordered th,
 .table-bordered td {
-  border: 1px solid #f3f3f3;
+  border: 1px solid #dee2e6;
 }
 
 .table-bordered thead th,
@@ -10108,8 +10108,12 @@ pre code {
   border: 0;
 }
 
-.table-striped tbody tr:nth-of-type(odd) {
+/* .table-striped tbody tr:nth-of-type(odd) {
   background-color: #f6f7fb;
+} */
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: #ebe5e5;
 }
 
 .table-hover tbody tr:hover {

@@ -4,9 +4,9 @@ include('../partials/conn.php');
 
 if (isset($_POST['submit-product']) && !empty($_POST['product-name'])) {
  
-    $product_name = htmlentities($_POST['product-name']);
+    $product_name = addslashes(htmlentities($_POST['product-name']));
     $product_price = 'Ksh. ' . htmlentities($_POST['product-price']);
-    $product_desc = htmlentities($_POST['product-description']);
+    $product_desc = addslashes(htmlentities($_POST['product-description']));
     $product_category = $_POST['product-category'];
     $category_id = '';
 
@@ -32,10 +32,11 @@ if (isset($_POST['submit-product']) && !empty($_POST['product-name'])) {
 
     $uploaded_files = $_FILES['product-img'];
 
-    $file_name = $uploaded_files['name'];
+    $file_name = date('m/d/Y h:i:s a') . $uploaded_files['name'];
     $target_dir = '../admin/images/product_uploads/';
 
     $file_path = $target_dir . $file_name;
+    $file_path_db = 'images/product_uploads/' . $file_name;
     $file_ext = pathinfo($file_path, PATHINFO_EXTENSION);
     $file_size = $uploaded_files['size'];
     $temp_location = $uploaded_files['tmp_name'];
@@ -52,15 +53,15 @@ if (isset($_POST['submit-product']) && !empty($_POST['product-name'])) {
         
         move_uploaded_file($temp_location, $file_path);
 
-        $product_query = "INSERT INTO `products` (`id`, `product_name`, `price`, `product_description`, `product_pictures`, `category_id`) VALUES ('', '$product_name', '$product_price', '$product_desc', '$file_path', '$category_id')";
+        $product_query = "INSERT INTO `products` (`id`, `product_name`, `price`, `product_description`, `product_pictures`, `category_id`) VALUES ('', '$product_name', '$product_price', '$product_desc', '$file_path_db', '$category_id')";
 
         $insert = mysqli_query($conn, $product_query);
-                if ($insert) {
-                    echo '<script type="text/javascript">
-                            alert("Product Has Been Added Successfully!");
-                            window.location = "../admin/products.php";
-                        </script>';
-                }
+            if ($insert) {
+                echo '<script type="text/javascript">
+                        alert("Product Has Been Added Successfully!");
+                        window.location = "../admin/products.php";
+                    </script>';
+            }
 
     } else {
         foreach ($errors as $error) {
