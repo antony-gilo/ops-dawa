@@ -38,7 +38,9 @@ unset($_SESSION['id-customer']);
           <div class="col-lg-6 d-flex align-items-center justify-content-center">
             <div class="auth-form-transparent text-left p-3">
               <div class="brand-logo">
-                <img src="admin/images/ops-logo.png" alt="logo" style="width: 120px;">
+                <a href="index.php">
+                  <img src="admin/images/ops-logo.png" alt="logo" style="width: 120px;">
+                </a>
               </div>
               <h4>Welcome back to OPS!</h4>
               <h6 class="font-weight-light">Happy to see you again,</h6>

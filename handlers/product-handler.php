@@ -11,7 +11,7 @@ if (isset($_POST['submit-product']) && !empty($_POST['product-name'])) {
 
     $product_desc = str_replace(array( '(', ')' ), '', $product_desc);
     $product_desc = str_replace(array( '"', '"' ), '\'', $product_desc);
-    $product_desc =trim($product_desc, '"');
+    $product_desc =nl2br($product_desc);
 
     $allowed_ext = [
         'png',
