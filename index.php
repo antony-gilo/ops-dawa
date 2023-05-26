@@ -43,14 +43,7 @@ include("partials/head.php");
                                <li data-filter=".<?php echo str_replace(' ', '', $category['category_name'])?>"><?php echo $category['category_name']?></li>
                         <?php 
                             }
-                        
-                        
                         ?>
-                        <!-- <li data-filter=".women">Women’s</li>
-                        <li data-filter=".men">Men’s</li>
-                        <li data-filter=".kid">Kid’s</li>
-                        <li data-filter=".accessories">Accessories</li>
-                        <li data-filter=".cosmetic">Cosmetics</li> -->
                     </ul>
                 </div>
             </div>
@@ -65,7 +58,7 @@ include("partials/head.php");
                     <div class="col-lg-3 col-md-4 col-sm-6 mix <?php echo str_replace(' ', '', $row['category_name'])?>">
                     <div class="product__item">
                         <div class="product__item__pic set-bg">
-                        <img src="admin/<?php echo $product['product_pictures'] ?>" alt="picture" class="product__item__pic set-bg">
+                        <img src="admin/<?php echo $product['product_pictures'] ?>" alt="picture">
                             <div class="label new">New</div>
                             <ul class="product__hover">
                                 <li><a href="admin/<?php echo $product['product_pictures'] ?>" class="image-popup"><span class="arrow_expand"></span></a></li>
@@ -102,8 +95,8 @@ include("partials/head.php");
                     <div class="banner__slider owl-carousel">
                         <div class="banner__item">
                             <div class="banner__text">
-                                <span>The Chloe Collection</span>
-                                <h1>The Project Jacket</h1>
+                                <span>LIMITED TIME OFFER</span>
+                                <h1>Hurry While Stock Lasts</h1>
                                 <a href="#">Shop now</a>
                             </div>
                         </div>
