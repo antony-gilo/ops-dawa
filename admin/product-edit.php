@@ -66,6 +66,7 @@ $selected_cat_name = mysqli_fetch_array($selected_cat)['category_name'];
                             <div class="form-group">
                                 <label for="product-name">Product Name</label>
                                 <input type="text" class="form-control" name="product-name" id="product-name" value="<?php echo $row['product_name'] ?>" required>
+                                <input type="hidden" class="form-control" name="product-id" value="<?php echo $row['id'] ?>">
                             </div>
 
                             <div class="form-group">
@@ -75,7 +76,7 @@ $selected_cat_name = mysqli_fetch_array($selected_cat)['category_name'];
 
                             <div class="form-group">
                                 <label for="product-description">Product Description</label>
-                                <textarea class="form-control" name="product-description" id="product-description" rows="10" required><?php echo html_entity_decode(trim($row['product_description'])) ?></textarea>
+                                <textarea class="form-control" name="product-description" id="product-description" rows="10" required><?php echo strip_tags($row['product_description']); ?></textarea>
                             </div>
 
                             <div class="form-group">

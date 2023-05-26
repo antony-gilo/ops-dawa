@@ -42,7 +42,7 @@ $row = mysqli_fetch_assoc($result);
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-6" pt-5>
+                  <div class="col-md-6 pt-5" >
                     <div class="card-body">
                       <h4 class="card-title"> Product Name:</h4>
                       <p class="card-description"> <?php echo $row['product_name'] ?> </p>
