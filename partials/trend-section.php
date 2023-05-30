@@ -7,12 +7,18 @@
                         <div class="section-title">
                             <h4>Hot Trend</h4>
                         </div>
+                        <?php 
+                            $trend_query = "SELECT * FROM `products` WHERE created_at < NOW() - INTERVAL 1 WEEK";
+                            $trendy_products = mysqli_query($conn, $trend_query);
+                            
+                            while ($trend = mysqli_fetch_assoc($trendy_products)) { 
+                                ?>
                         <div class="trend__item">
                             <div class="trend__item__pic">
-                                <img src="img/trend/ht-1.jpg" alt="">
+                                <img src="admin/<?php echo $trend['product_pictures'] ?>" alt="picture">
                             </div>
                             <div class="trend__item__text">
-                                <h6>Chain bucket bag</h6>
+                                <h6><?php echo $trend['product_name'] ?></h6>
                                 <div class="rating">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
@@ -20,41 +26,12 @@
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
                                 </div>
-                                <div class="product__price">$ 59.0</div>
+                                <div class="product__price"><?php echo $trend['price'] ?></div>
                             </div>
                         </div>
-                        <div class="trend__item">
-                            <div class="trend__item__pic">
-                                <img src="img/trend/ht-2.jpg" alt="">
-                            </div>
-                            <div class="trend__item__text">
-                                <h6>Pendant earrings</h6>
-                                <div class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <div class="product__price">$ 59.0</div>
-                            </div>
-                        </div>
-                        <div class="trend__item">
-                            <div class="trend__item__pic">
-                                <img src="img/trend/ht-3.jpg" alt="">
-                            </div>
-                            <div class="trend__item__text">
-                                <h6>Cotton T-Shirt</h6>
-                                <div class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <div class="product__price">$ 59.0</div>
-                            </div>
-                        </div>
+                        <?php 
+                            }
+                        ?>      
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
@@ -62,12 +39,18 @@
                         <div class="section-title">
                             <h4>Best seller</h4>
                         </div>
+                        <?php 
+                            $seller_query = "SELECT * FROM `products` LIMIT 4";
+                            $seller_products = mysqli_query($conn, $seller_query);
+                            
+                            while ($seller = mysqli_fetch_assoc($seller_products)) { 
+                                ?>
                         <div class="trend__item">
                             <div class="trend__item__pic">
-                                <img src="img/trend/bs-1.jpg" alt="">
+                                <img src="admin/<?php echo $seller['product_pictures'] ?>" alt="picture">
                             </div>
                             <div class="trend__item__text">
-                                <h6>Cotton T-Shirt</h6>
+                                <h6><?php echo $seller['product_name'] ?></h6>
                                 <div class="rating">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
@@ -75,54 +58,31 @@
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
                                 </div>
-                                <div class="product__price">$ 59.0</div>
+                                <div class="product__price"><?php echo $seller['price'] ?></div>
                             </div>
                         </div>
-                        <div class="trend__item">
-                            <div class="trend__item__pic">
-                                <img src="img/trend/bs-2.jpg" alt="">
-                            </div>
-                            <div class="trend__item__text">
-                                <h6>Zip-pockets pebbled tote <br />briefcase</h6>
-                                <div class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <div class="product__price">$ 59.0</div>
-                            </div>
-                        </div>
-                        <div class="trend__item">
-                            <div class="trend__item__pic">
-                                <img src="img/trend/bs-3.jpg" alt="">
-                            </div>
-                            <div class="trend__item__text">
-                                <h6>Round leather bag</h6>
-                                <div class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <div class="product__price">$ 59.0</div>
-                            </div>
-                        </div>
+                        <?php 
+                            }
+                        ?>      
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="trend__content">
                         <div class="section-title">
-                            <h4>Feature</h4>
+                            <h4>Feature </h4>
                         </div>
+                        <?php 
+                            $feature_query = "SELECT * FROM `products` LIMIT 5";
+                            $feature_products = mysqli_query($conn, $feature_query);
+                            
+                            while ($feature = mysqli_fetch_assoc($feature_products)) { 
+                                ?>
                         <div class="trend__item">
                             <div class="trend__item__pic">
-                                <img src="img/trend/f-1.jpg" alt="">
+                                <img src="admin/<?php echo $feature['product_pictures'] ?>" alt="picture">
                             </div>
                             <div class="trend__item__text">
-                                <h6>Bow wrap skirt</h6>
+                                <h6><?php echo $feature['product_name'] ?></h6>
                                 <div class="rating">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
@@ -130,41 +90,12 @@
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
                                 </div>
-                                <div class="product__price">$ 59.0</div>
+                                <div class="product__price"><?php echo $feature['price'] ?></div>
                             </div>
                         </div>
-                        <div class="trend__item">
-                            <div class="trend__item__pic">
-                                <img src="img/trend/f-2.jpg" alt="">
-                            </div>
-                            <div class="trend__item__text">
-                                <h6>Metallic earrings</h6>
-                                <div class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <div class="product__price">$ 59.0</div>
-                            </div>
-                        </div>
-                        <div class="trend__item">
-                            <div class="trend__item__pic">
-                                <img src="img/trend/f-3.jpg" alt="">
-                            </div>
-                            <div class="trend__item__text">
-                                <h6>Flap cross-body bag</h6>
-                                <div class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
-                                <div class="product__price">$ 59.0</div>
-                            </div>
-                        </div>
+                        <?php 
+                            }
+                        ?>      
                     </div>
                 </div>
             </div>

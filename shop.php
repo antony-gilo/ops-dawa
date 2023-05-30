@@ -13,7 +13,6 @@ include("partials/head.php");
     <?php 
     
         include("partials/header.php");
-        include("partials/categories.php");
 
         $query = "SELECT * FROM products LIMIT 30";
         $all_products = mysqli_query($conn, $query);
@@ -23,7 +22,20 @@ include("partials/head.php");
     
     ?>
 
-    
+    <!-- Breadcrumb Begin -->
+    <div class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__links">
+                        <a href="./index.php"><i class="fa fa-home"></i> Home</a>
+                        <span>Shop</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb End -->
 
     <!-- Product Section Begin -->
     <section class="product spad">

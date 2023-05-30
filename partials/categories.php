@@ -7,7 +7,7 @@
                         <div class="categories__text">
                             <h1>Mum And Baby</h1>
                             <p>We’ve put together resources to help you prepare to welcome your new little family member. We created a quick guide to caring for your baby to help you focus on the special moments</p>
-                            <a href="#">Shop now</a>
+                            <a href="./shop.php">Shop now</a>
                         </div>
                     </div>
                 </div>
@@ -18,7 +18,7 @@
                                 <div class="categories__text">
                                     <h4>Health Care Conditions</h4>
                                     <p>358 items</p>
-                                    <a href="#">Shop now</a>
+                                    <a href="./shop.php">Shop now</a>
                                 </div>
                             </div>
                         </div>
@@ -27,7 +27,7 @@
                                 <div class="categories__text">
                                     <h4>Skin and Hair Care</h4>
                                     <p>273 items</p>
-                                    <a href="#">Shop now</a>
+                                    <a href="./shop.php">Shop now</a>
                                 </div>
                             </div>
                         </div>
@@ -36,7 +36,7 @@
                                 <div class="categories__text">
                                     <h4>Devices And Diagnostics</h4>
                                     <p>159 items</p>
-                                    <a href="#">Shop now</a>
+                                    <a href="./shop.php">Shop now</a>
                                 </div>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                                 <div class="categories__text">
                                     <h4>Vitamins And Suppliments</h4>
                                     <p>792 items</p>
-                                    <a href="#">Shop now</a>
+                                    <a href="./shop.php">Shop now</a>
                                 </div>
                             </div>
                         </div>
