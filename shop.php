@@ -1,19 +1,22 @@
 <?php
 include('partials/conn.php');
+
+$limit = 20;
+$page = isset($_GET['page']) ? $_GET['page'] : 1;
+$start = ($page - 1) * $limit;
+$next = $page + 1;
+$previous = ($page - 1) === 0 ? 1 : $page -1;
+
+$query = "SELECT * FROM products LIMIT $start, $limit";
+
+$all_products = mysqli_query($conn, $query);
+
 ?>
 <!DOCTYPE html>
 <html lang="eng">
 
 <?php
 include("partials/head.php");
-
-$limit = 5;
-// $page = $_GET['page'];
-
-$query = "SELECT * FROM products LIMIT $limit";
-$all_products = mysqli_query($conn, $query);
-
-
 ?>
 
 <body>
@@ -98,11 +101,10 @@ $all_categories = mysqli_query($conn, $category_query);
                         <div class="col-lg-4 col-md-6">
                             <div class="product__item">
                                 <div class="product__item__pic set-bg">
-                                    <img src="admin/<?php echo $product['product_pictures'] ?>" alt="picture">
+                                    <img src="admin/<?php echo $product['product_pictures'] ?>" alt="picture" loading="lazy">
                                     <div class="label new">New</div>
                                     <ul class="product__hover">
                                         <li><a href="admin/<?php echo $product['product_pictures'] ?>" class="image-popup"><span class="arrow_expand"></span></a></li>
-                                        <li><a href="#"><span class="icon_heart_alt"></span></a></li>
                                         <li><a href="#"><span class="icon_bag_alt"></span></a></li>
                                     </ul>
                                 </div>
@@ -124,10 +126,11 @@ $all_categories = mysqli_query($conn, $category_query);
                              ?>
                         <div class="col-lg-12 text-center">
                             <div class="pagination__option">
-                                <a href="#">1</a>
-                                <a href="#">2</a>
-                                <a href="#">3</a>
-                                <a href="#"><i class="fa fa-angle-right"></i></a>
+                                <a href="shop.php?page=<?php echo $previous; ?>"><i class="fa fa-angle-left"></i></a>
+                                <a href="shop.php?page=1">1</a>
+                                <a href="shop.php?page=2">2</a>
+                                <a href="shop.php?page=3">3</a>
+                                <a href="shop.php?page=<?php echo $next; ?>"><i class="fa fa-angle-right"></i></a>
                             </div>
                         </div>
                     </div>

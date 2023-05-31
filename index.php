@@ -58,7 +58,7 @@ include("partials/head.php");
                     <div class="col-lg-3 col-md-4 col-sm-6 mix <?php echo str_replace(' ', '', $row['category_name'])?>">
                     <div class="product__item">
                         <div class="product__item__pic set-bg">
-                        <img src="admin/<?php echo $product['product_pictures'] ?>" alt="picture">
+                            <img src="admin/<?php echo $product['product_pictures'] ?>" alt="picture" loading="lazy">
                             <div class="label new">New</div>
                             <ul class="product__hover">
                                 <li><a href="admin/<?php echo $product['product_pictures'] ?>" class="image-popup"><span class="arrow_expand"></span></a></li>
