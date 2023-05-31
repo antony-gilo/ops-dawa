@@ -1,4 +1,4 @@
-<?php 
+<?php
 include('partials/conn.php');
 ?>
 <!DOCTYPE html>
@@ -6,21 +6,26 @@ include('partials/conn.php');
 
 <?php
 include("partials/head.php");
+
+$limit = 5;
+// $page = $_GET['page'];
+
+$query = "SELECT * FROM products LIMIT $limit";
+$all_products = mysqli_query($conn, $query);
+
+
 ?>
 
 <body>
 
-    <?php 
-    
-        include("partials/header.php");
+<?php
 
-        $query = "SELECT * FROM products LIMIT 30";
-        $all_products = mysqli_query($conn, $query);
+include("partials/header.php");
 
-        $category_query = "SELECT * FROM categories";
-        $all_categories = mysqli_query($conn, $category_query);
-    
-    ?>
+$category_query = "SELECT * FROM categories";
+$all_categories = mysqli_query($conn, $category_query);
+
+?>
 
     <!-- Breadcrumb Begin -->
     <div class="breadcrumb-option">
@@ -48,20 +53,20 @@ include("partials/head.php");
                                 <h4>Shop by size</h4>
                             </div>
                             <div class="size__list color__list">
-                                <?php 
-                                    $category_query = "SELECT * FROM categories";
-                                    $all_categories = mysqli_query($conn, $category_query);
+                                <?php
+                                $category_query = "SELECT * FROM categories";
+                                $all_categories = mysqli_query($conn, $category_query);
 
-                                    while ($category = mysqli_fetch_assoc($all_categories)) {
-                                ?>
+                                while ($category = mysqli_fetch_assoc($all_categories)) {
+                                    ?>
                                     <label for="<?php echo $category['category_name']; ?>">
                                         <?php echo $category['category_name']; ?>
-                                        <input type="checkbox" id="<?php echo $category['category_name']; ?>">
+                                        <input type="checkbox" value="<?php echo $category['id'] ?>" id="<?php echo $category['category_name']; ?>">
                                         <span class="checkmark"></span>
                                     </label>
-                                <?php 
+                                <?php
                                     }
-                                ?>
+                                    ?>
                             </div>
                         </div>
                         
@@ -86,18 +91,23 @@ include("partials/head.php");
                 </div>
                 <div class="col-lg-9 col-md-9">
                     <div class="row">
+                        <?php
+                            
+                            while ($product = mysqli_fetch_assoc($all_products)) {
+                        ?>
                         <div class="col-lg-4 col-md-6">
                             <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/shop/shop-1.jpg">
+                                <div class="product__item__pic set-bg">
+                                    <img src="admin/<?php echo $product['product_pictures'] ?>" alt="picture">
                                     <div class="label new">New</div>
                                     <ul class="product__hover">
-                                        <li><a href="img/shop/shop-1.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
+                                        <li><a href="admin/<?php echo $product['product_pictures'] ?>" class="image-popup"><span class="arrow_expand"></span></a></li>
                                         <li><a href="#"><span class="icon_heart_alt"></span></a></li>
                                         <li><a href="#"><span class="icon_bag_alt"></span></a></li>
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="#">Furry hooded parka</a></h6>
+                                    <h6><a href="#"><?php echo $product['product_name'] ?></a></h6>
                                     <div class="rating">
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
@@ -105,189 +115,13 @@ include("partials/head.php");
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
                                     </div>
-                                    <div class="product__price">$ 59.0</div>
+                                    <div class="product__price"><?php echo $product['price'] ?></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/shop/shop-2.jpg">
-                                    <ul class="product__hover">
-                                        <li><a href="img/shop/shop-2.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                                        <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                                        <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6><a href="#">Flowy striped skirt</a></h6>
-                                    <div class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                    <div class="product__price">$ 49.0</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/shop/shop-3.jpg">
-                                    <ul class="product__hover">
-                                        <li><a href="img/shop/shop-3.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                                        <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                                        <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6><a href="#">Croc-effect bag</a></h6>
-                                    <div class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                    <div class="product__price">$ 59.0</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/shop/shop-4.jpg">
-                                    <ul class="product__hover">
-                                        <li><a href="img/shop/shop-4.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                                        <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                                        <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6><a href="#">Dark wash Xavi jeans</a></h6>
-                                    <div class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                    <div class="product__price">$ 59.0</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="product__item sale">
-                                <div class="product__item__pic set-bg" data-setbg="img/shop/shop-5.jpg">
-                                    <div class="label">Sale</div>
-                                    <ul class="product__hover">
-                                        <li><a href="img/shop/shop-5.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                                        <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                                        <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6><a href="#">Ankle-cuff sandals</a></h6>
-                                    <div class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                    <div class="product__price">$ 49.0 <span>$ 59.0</span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/shop/shop-6.jpg">
-                                    <ul class="product__hover">
-                                        <li><a href="img/shop/shop-6.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                                        <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                                        <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6><a href="#">Contrasting sunglasses</a></h6>
-                                    <div class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                    <div class="product__price">$ 59.0</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/shop/shop-7.jpg">
-                                    <ul class="product__hover">
-                                        <li><a href="img/shop/shop-7.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                                        <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                                        <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6><a href="#">Circular pendant earrings</a></h6>
-                                    <div class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                    <div class="product__price">$ 59.0</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/shop/shop-8.jpg">
-                                    <div class="label stockout stockblue">Out Of Stock</div>
-                                    <ul class="product__hover">
-                                        <li><a href="img/shop/shop-8.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                                        <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                                        <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6><a href="#">Cotton T-Shirt</a></h6>
-                                    <div class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                    <div class="product__price">$ 59.0</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="product__item sale">
-                                <div class="product__item__pic set-bg" data-setbg="img/shop/shop-9.jpg">
-                                    <div class="label">Sale</div>
-                                    <ul class="product__hover">
-                                        <li><a href="img/shop/shop-9.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                                        <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                                        <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6><a href="#">Water resistant zips backpack</a></h6>
-                                    <div class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                    <div class="product__price">$ 49.0 <span>$ 59.0</span></div>
-                                </div>
-                            </div>
-                        </div>
+                            <?php 
+                                }
+                             ?>
                         <div class="col-lg-12 text-center">
                             <div class="pagination__option">
                                 <a href="#">1</a>
