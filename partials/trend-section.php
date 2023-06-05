@@ -18,7 +18,7 @@
                                 <img src="admin/<?php echo $trend['product_pictures'] ?>" alt="picture">
                             </div>
                             <div class="trend__item__text">
-                                <h6><?php echo $trend['product_name'] ?></h6>
+                                <h6><a href="product-details.php?id=<?php echo $trend['id']?>" style="color: grey;"><?php echo $trend['product_name'] ?></a></h6>
                                 <div class="rating">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
@@ -50,7 +50,7 @@
                                 <img src="admin/<?php echo $seller['product_pictures'] ?>" alt="picture">
                             </div>
                             <div class="trend__item__text">
-                                <h6><?php echo $seller['product_name'] ?></h6>
+                                <h6><a href="product-details.php?id=<?php echo $seller['id']?>" style="color: grey;"><?php echo $seller['product_name'] ?></a>></h6>
                                 <div class="rating">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
@@ -82,7 +82,7 @@
                                 <img src="admin/<?php echo $feature['product_pictures'] ?>" alt="picture">
                             </div>
                             <div class="trend__item__text">
-                                <h6><?php echo $feature['product_name'] ?></h6>
+                                <h6><a href="product-details.php?id=<?php echo $feature['id']?>" style="color: grey;"><?php echo $feature['product_name'] ?></a></h6>
                                 <div class="rating">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>

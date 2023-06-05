@@ -66,7 +66,7 @@ include("partials/head.php");
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#"><?php echo $product['product_name'] ?></a></h6>
+                            <h6><a href="product-details.php?id=<?php echo $product['id']?>"><?php echo $product['product_name'] ?></a></h6>
                             <div class="rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>

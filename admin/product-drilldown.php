@@ -40,7 +40,7 @@ $row = mysqli_fetch_assoc($result);
                                 <h4 class="card-title"><?php echo $row['product_name'] ?></h4>
                                 <p class="card-description">More Details About The Product</p>
                                 <div class="template-demo">
-                                <img src="<?php echo $row['product_pictures']; ?>" alt="picture">
+                                <img src="<?php echo $row['product_pictures']; ?>" alt="picture" style="max-width: 580px;">
                                 </div>
                             </div>
                         </div>
