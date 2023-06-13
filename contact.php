@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="zxx">
 
-<?php include("partials/head.php") ?>
+<?php 
+session_start();
+include("partials/head.php") ?>
 
 <body>
     <?php include("partials/header.php") ?>

@@ -58,7 +58,14 @@
                     <ul class="header__right__widget">
                         <li><span class="icon_search search-switch"></span></li>
                         <li><a href="./cart.php"><span class="icon_bag_alt"></span>
-                                <div class="tip">2</div>
+                        <?php 
+                            if (isset($_SESSION['cart'])) {
+                                $count = count($_SESSION['cart']);
+                            } else {
+                                $count = 0;
+                            }
+                        ?>
+                                <div class="tip"><small><?php echo $count; ?></small></div>
                             </a></li>
                     </ul>
                 </div>
