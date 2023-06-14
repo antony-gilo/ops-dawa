@@ -45,6 +45,8 @@ include("partials/head.php");
                             </thead>
                             <tbody>
                         <?php 
+                            $total = 0;
+
                             if (isset($_SESSION['cart'])) {
                                 
                                 foreach ($_SESSION['cart'] as $value) {
@@ -52,14 +54,18 @@ include("partials/head.php");
                                     $query = "SELECT * FROM products WHERE id = $product_id";
                                     $result = mysqli_query($conn, $query);
                                     $row = mysqli_fetch_assoc($result);
+
                                     $picture = 'admin/' . $row['product_pictures'];
+                                    $int_price = explode('Ksh. ', $row['price']);
+                                    $price = intval($int_price[1]);
+                                    $total = $total + $price;
                         
                         ?>
                                 <tr>
                                     <td class="cart__product__item">
                                         <img src="<?php echo $picture ?>" alt="" style="max-width: 90px; !important;">
                                         <div class="cart__product__item__title">
-                                            <h6><?php echo $value['product_name'] ?></h6>
+                                            <h6><?php echo $row['product_name'] ?></h6>
                                             <div class="rating">
                                                 <i class="fa fa-star"></i>
                                                 <i class="fa fa-star"></i>
@@ -69,14 +75,21 @@ include("partials/head.php");
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="cart__price"><?php echo $value['product_price'] ?></td>
+                                    <td class="cart__price">Ksh. <?php echo $price ?></td>
                                     <td class="cart__quantity"> 
                                         <div class="pro-qty">
                                             <input type="text" value="1">
                                         </div>
                                     </td>
-                                    <td class="cart__total"><?php echo $value['product_price']?></td>
-                                    <td class="cart__close"><span class="icon_close"></span></td>
+                                    <td class="cart__total">Ksh. <?php echo $price ?></td>
+                                    <td class="cart__close">
+                                        <form action="handlers/remove-cart.php" method="POST">
+                                            <input type="hidden" name="cart_id" value="<?php echo $row['id'] ?>">
+                                            <button class="footer__social" name="edit_cart" type="submit" style="border-radius: 50%; border: 0px;">
+                                                <span class="icon_close"></span>
+                                            </button>
+                                        </form>
+                                    </td>
                                 </tr>
                             <?php 
                               }
@@ -106,8 +119,8 @@ include("partials/head.php");
                     <div class="cart__total__procced">
                         <h6>Cart total</h6>
                         <ul>
-                            <li>Subtotal <span>$ 750.0</span></li>
-                            <li>Total <span>$ 750.0</span></li>
+                            <li>Subtotal <span>Ksh. <?php echo isset($_SESSION['cart']) ? $total : 0; ?></span></li>
+                            <li>Total <span>Ksh. <?php echo isset($_SESSION['cart']) ? $total : 0; ?></span></li>
                         </ul>
                         <a href="#" class="primary-btn">Proceed to checkout</a>
                     </div>

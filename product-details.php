@@ -88,7 +88,7 @@ $category = mysqli_fetch_assoc($result);
                                     <input type="text" value="1">
                                 </div>
                             </div>
-                            <a href='handlers/cart_handler.php?product_id=<?php echo $product['id']; ?>&product_name=<?php echo $product['product_name'] ?>&product_price=<?php echo $product['price'] ?>'" 
+                            <a href='handlers/cart_handler.php?product_id=<?php echo $product['id']; ?>&product_name=<?php echo $product['product_name']; ?>&product_price=<?php echo $product['price']; ?>'" 
                             class="cart-btn"><span class="icon_bag_alt"></span> Add to cart</a>
                             <!-- <ul>
                                 <li><a href="#"><span class="icon_heart_alt"></span></a></li>
