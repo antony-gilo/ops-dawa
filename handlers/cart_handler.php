@@ -17,6 +17,7 @@ if (isset($_SESSION['cart'])) {
             'product_id' => $_GET['product_id'],
             'product_name' => $_GET['product_name'],
             'product_price' => $_GET['product_price'],
+            'quantity' => 1,
         ];
     
         echo "<script> alert('Product Added To Cart');
@@ -30,6 +31,7 @@ if (isset($_SESSION['cart'])) {
         'product_id' => $_GET['product_id'],
         'product_name' => $_GET['product_name'],
         'product_price' => $_GET['product_price'],
+        'quantity' => 1,
     ];
 
     echo "<script> alert('Product Added To Cart');

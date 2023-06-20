@@ -6,9 +6,6 @@ require_once "../partials/conn.php";
 if (isset($_POST['edit_cart'])) {
 
     $id = $_POST['cart_id'];
-    $query = "SELECT * FROM products WHERE id = $id";
-    $result = mysqli_query($conn, $query);
-    $row = mysqli_fetch_assoc($result);
 
     foreach ($_SESSION['cart'] as $key => $value) {
 

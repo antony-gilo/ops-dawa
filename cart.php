@@ -50,14 +50,16 @@ include("partials/head.php");
                             if (isset($_SESSION['cart'])) {
                                 
                                 foreach ($_SESSION['cart'] as $value) {
+
                                     $product_id = $value['product_id'];
                                     $query = "SELECT * FROM products WHERE id = $product_id";
                                     $result = mysqli_query($conn, $query);
                                     $row = mysqli_fetch_assoc($result);
 
                                     $picture = 'admin/' . $row['product_pictures'];
-                                    $int_price = explode('Ksh. ', $row['price']);
-                                    $price = intval($int_price[1]);
+                                    $int_price = explode('Ksh. ', $value['product_price']);
+                                    $raw_price = intval($int_price[1]);
+                                    $price = $raw_price * $value['quantity'];
                                     $total = $total + $price;
                         
                         ?>
@@ -75,20 +77,25 @@ include("partials/head.php");
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="cart__price">Ksh. <?php echo $price ?></td>
+                                    <td class="cart__price">Ksh. <?php echo $raw_price ?></td>
+
                                     <td class="cart__quantity"> 
                                         <div class="pro-qty">
-                                            <input type="text" value="1">
+                                            <input type="text" name="cart-qty"  value="<?php echo $value['quantity']; ?>" form="update-cart-form">
+                                            <input type="hidden" name="qty_id" value="<?php echo $row['id'] ?>" form="update-cart-form">
                                         </div>
                                     </td>
+
                                     <td class="cart__total">Ksh. <?php echo $price ?></td>
                                     <td class="cart__close">
+                                    <layer>
                                         <form action="handlers/remove-cart.php" method="POST">
                                             <input type="hidden" name="cart_id" value="<?php echo $row['id'] ?>">
                                             <button class="footer__social" name="edit_cart" type="submit" style="border-radius: 50%; border: 0px;">
                                                 <span class="icon_close"></span>
                                             </button>
                                         </form>
+                                    </layer>
                                     </td>
                                 </tr>
                             <?php 
@@ -107,9 +114,13 @@ include("partials/head.php");
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
+                <form action="handlers/update-cart.php" method="POST" id="update-cart-form">
                     <div class="cart__btn update__btn">
-                        <a href="#"><span class="icon_loading"></span> Update cart</a>
+                        <button type="submit" class="site-btn" name="update_cart" style="background-color: #f5f5f5; color:black;">
+                            <span class="icon_loading"></span> Update cart
+                        </button>
                     </div>
+                </form>
                 </div>
             </div>
             <div class="row">
