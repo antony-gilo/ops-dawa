@@ -82,10 +82,10 @@ $category = mysqli_fetch_assoc($result);
                         <div class="product__details__price"><?php echo $product['price']; ?><span></span></div>
                         <p><?php echo html_entity_decode($product['product_description']); ?></p>
                         <div class="product__details__button">
-                            <div class="quantity">
-                                <span>Quantity:</span>
-                                <div class="pro-qty">
-                                    <input type="text" value="1">
+                            <div>
+                                <span>&nbsp;</span>
+                                <div>
+                                    &nbsp;
                                 </div>
                             </div>
                             <a href='handlers/cart_handler.php?product_id=<?php echo $product['id']; ?>&product_name=<?php echo $product['product_name']; ?>&product_price=<?php echo $product['price']; ?>'" 

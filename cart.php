@@ -117,7 +117,7 @@ include("partials/head.php");
                             <li>Subtotal <span>Ksh. <?php echo isset($_SESSION['cart']) ? $total : 0; ?></span></li>
                             <li>Total <span>Ksh. <?php echo isset($_SESSION['cart']) ? $total : 0; ?></span></li>
                         </ul>
-                        <a href="#" class="primary-btn">Proceed to checkout</a>
+                        <a href="handlers/checkout-handler.php?total=<?php echo $total; ?>" style="padding: 12px 30px; border: none; text-decoration: none;" type="submit" class="primary-btn">Proceed to checkout</a>
                     </div>
                 </div>
             </div>
