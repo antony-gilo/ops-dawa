@@ -54,7 +54,7 @@ $all_categories = mysqli_query($conn, $category_query);
                     <div class="shop__sidebar">
                         <div class="sidebar__color">
                             <div class="section-title">
-                                <h4>Shop by size</h4>
+                                <!-- <h4>Shop by size</h4> -->
                             </div>
                             <div class="size__list color__list">
                                 <?php
@@ -62,13 +62,7 @@ $all_categories = mysqli_query($conn, $category_query);
                                 $all_categories = mysqli_query($conn, $category_query);
 
                                 while ($category = mysqli_fetch_assoc($all_categories)) {
-                                    ?>
-                                    <label for="<?php echo $category['category_name']; ?>">
-                                        <?php echo $category['category_name']; ?>
-                                        <input type="checkbox" value="<?php echo $category['id'] ?>" id="<?php echo $category['category_name']; ?>">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                <?php
+                                    
                                     }
                                     ?>
                             </div>
@@ -76,20 +70,19 @@ $all_categories = mysqli_query($conn, $category_query);
                         
                         <div class="sidebar__filter">
                             <div class="section-title">
-                                <h4>Shop by price</h4>
+                                <!-- <h4>Shop by price</h4> -->
                             </div>
                             <div class="filter-range-wrap">
-                                <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
-                                data-min="150" data-max="4999"></div>
+                                <div></div>
                                 <div class="range-slider">
                                     <div class="price-input">
-                                        <span>Ksh:</span>
+                                        <!-- <span>Ksh:</span>
                                         <input type="text" id="minamount">
-                                        <input type="text" id="maxamount">
+                                        <input type="text" id="maxamount"> -->
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">Filter</a>
+                            <!-- <a href="#">Filter</a> -->
                         </div>  
                     </div>
                 </div>

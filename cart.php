@@ -38,7 +38,7 @@ include("partials/head.php");
                                 <tr>
                                     <th>Product</th>
                                     <th>Price</th>
-                                    <th>Quantity</th>
+                                    <!-- <th>Quantity</th> -->
                                     <th>Total</th>
                                     <th></th>
                                 </tr>
@@ -79,13 +79,6 @@ include("partials/head.php");
                                     </td>
                                     <td class="cart__price">Ksh. <?php echo $raw_price ?></td>
 
-                                    <td class="cart__quantity"> 
-                                        <div class="pro-qty">
-                                            <input type="text" name="cart-qty"  value="<?php echo $value['quantity']; ?>" form="update-cart-form">
-                                            <input type="hidden" name="qty_id" value="<?php echo $row['id'] ?>" form="update-cart-form">
-                                        </div>
-                                    </td>
-
                                     <td class="cart__total">Ksh. <?php echo $price ?></td>
                                     <td class="cart__close">
                                     <layer>
@@ -112,15 +105,6 @@ include("partials/head.php");
                     <div class="cart__btn">
                         <a href="shop.php">Continue Shopping</a>
                     </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                <form action="handlers/update-cart.php" method="POST" id="update-cart-form">
-                    <div class="cart__btn update__btn">
-                        <button type="submit" class="site-btn" name="update_cart" style="background-color: #f5f5f5; color:black;">
-                            <span class="icon_loading"></span> Update cart
-                        </button>
-                    </div>
-                </form>
                 </div>
             </div>
             <div class="row">
