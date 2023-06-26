@@ -35,6 +35,7 @@ include("partials/head.php");
                 </div>
             </div>
             <form action="handlers/order-handler.php" method="POST" class="checkout__form">
+                
                 <div class="row">
                     <div class="col-lg-8">
                         <h5>Billing details</h5>
@@ -42,23 +43,23 @@ include("partials/head.php");
                             <div class="col-lg-12">
                                 <div class="checkout__form__input">
                                     <p>Address <span>*</span></p>
-                                    <input type="text" placeholder="Street Address" name="address">
+                                    <input type="text" placeholder="Street Address" name="address" required>
                                 </div>
                                 <div class="checkout__form__input">
                                     <p>Town/City <span>*</span></p>
-                                    <input type="text" placeholder="Street Address" name="city">
+                                    <input type="text" placeholder="Town/City" name="city" required>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="checkout__form__input">
                                     <p>Phone <span>*</span></p>
-                                    <input type="text" placeholder="Phone Number" name="phone">
+                                    <input type="text" placeholder="Phone Number" name="phone" required>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="checkout__form__input">
                                     <p>Email <span>*</span></p>
-                                    <input type="email" placeholder="Email Address" name="email">
+                                    <input type="email" placeholder="Email Address" name="email" required>
                                 </div>
                             </div>
                             <div class="col-lg-12">
@@ -91,31 +92,39 @@ include("partials/head.php");
                                             <span class="top__text">Product</span>
                                             <span class="top__text__right">Total</span>
                                         </li>
-                                        <li>01. Chain buck bag <span>$ 300.0</span></li>
-                                        <li>02. Zip-pockets pebbled<br /> tote briefcase <span>$ 170.0</span></li>
-                                        <li>03. Black jean <span>$ 170.0</span></li>
-                                        <li>04. Cotton shirt <span>$ 110.0</span></li>
+
+                                        <?php 
+                                        $i =0;
+                                        foreach ($_SESSION['cart'] as $key => $value) {
+                                            global $i;
+                                            $i++; ?>
+                                        <li><span><?php echo $i .'. '. $value['product_name']; ?>-<?php echo $value['product_price'] ?></span></li>
+                                       <?php }?>
                                     </ul>
                                 </div>
                                 <div class="checkout__order__total">
                                     <ul>
-                                        <li>Subtotal <span>$ 750.0</span></li>
-                                        <li>Total <span>$ 750.0</span></li>
+                                        <li>Subtotal <span>Ksh. <?php echo $_SESSION['cart_total']; ?></span></li>
+                                        <li>Total <span>Ksh. <?php echo $_SESSION['cart_total']; ?></span></li>
                                     </ul>
                                 </div>
                                 <div class="checkout__order__widget">
+                                    <div class="checkout__order__total">
+                                        <span>Payment Method [Required]</span>
+                                    </div>
                                     <label for="check-payment">
                                         Cash on Delivery
-                                        <input type="checkbox" id="check-payment" name="cod" value="cod">
+                                        <input type="radio" id="check-payment" name="payment-method" value="cod" required>
                                         <span class="checkmark"></span>
                                     </label>
                                     <label for="paypal">
                                         PayPal
-                                        <input type="checkbox" id="paypal" name="paypal" value="paypal">
+                                        <input type="radio" id="paypal" name="payment-method" value="paypal" required>
+                                        <input type="hidden" name="total" value="Ksh. <?php echo $_SESSION['cart_total']; ?>">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
-                                <button type="submit" class="site-btn">Place oder</button>
+                                <button type="submit" class="site-btn" name="place-order">Place oder</button>
                             </div>
                         </div>
                     </div>
