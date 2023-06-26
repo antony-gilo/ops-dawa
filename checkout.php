@@ -92,13 +92,10 @@ include("partials/head.php");
                                             <span class="top__text">Product</span>
                                             <span class="top__text__right">Total</span>
                                         </li>
-
                                         <?php 
-                                        $i =0;
                                         foreach ($_SESSION['cart'] as $key => $value) {
-                                            global $i;
-                                            $i++; ?>
-                                        <li><span><?php echo $i .'. '. $value['product_name']; ?>-<?php echo $value['product_price'] ?></span></li>
+                                            $i = 0; ?>
+                                        <li><?php echo $value['product_name']; ?><span><?php echo $value['product_price'] ?></span></li>
                                        <?php }?>
                                     </ul>
                                 </div>
